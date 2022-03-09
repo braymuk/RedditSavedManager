@@ -16,35 +16,44 @@
 </script>
 
 <main>
-	<h1>SaveIt! {name}!</h1>
-	<div id="feed">
-		<div class="item">
-			<div class ="title">Post 1</div>
-			<img src = "./images/test.jpeg">
-		</div>
-		<div class="item">
-			<div class ="title">Post 2</div>
-			<img src = "./images/test2.jpeg">
-		</div>
-
-		{#each posts as article} 
-			<div class = "item">
-				<div class ="title">{article.title}</div>
-				<img src = "{article.url}">
+	<h1 id="pageTitle">SaveIt! {name}!</h1>
+	<div id="pageWrapper">
+		
+		<div id="feed">
+			<div class="item">
+				<div class ="title">Post 1</div>
+				<img src = "./images/test.jpeg">
 			</div>
-			
-		{/each}
+			<div class="item">
+				<div class ="title">Post 2</div>
+				<img src = "./images/test2.jpeg">
+			</div>
 
+			{#each posts as article} 
+				<div class = "item">
+					<div class ="title">{article.title}</div>
+					<img src = "{article.url}">
+				</div>
+				
+			{/each}
+
+		</div>
 	</div>
-	
 </main>
 
 <style>
 	main {
+		
+	}
+
+	#pageTitle {
+		margin-left: 1%;
+		margin-right: auto;
+	}
+
+	#pageWrapper {
 		display:flex;
-		flex-direction: column;
-		height:100%;
-		width:100%;
+		justify-content: center;
 	}
 
 	#feed{
@@ -55,6 +64,7 @@
 		grid-template-columns: 1fr 1fr 1fr;
 		column-gap: 20px;
 		row-gap: 10px;
+		max-width: 1152px;
 	}
 
 	.item{
@@ -67,6 +77,10 @@
 	.item img {
 		width:100%;
 		object-fit: contain;
+	}
+
+	.title{
+		padding:3px;
 	}
 
 	
