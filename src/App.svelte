@@ -52,7 +52,9 @@
 		justify-self: center;
 		width:100%;
 		height:100%;
-		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
+		column-gap: 20px;
+		row-gap: 10px;
 	}
 
 	.item{
