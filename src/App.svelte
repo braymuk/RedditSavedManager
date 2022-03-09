@@ -1,9 +1,22 @@
 <script>
+	import {onMount} from "svelte";
+	const endpoint = "https://jsonplaceholder.typicode.com/photos";
+	let posts = [];
+
+	onMount(async function () {
+		const response = await fetch(endpoint);
+		const data = await response.json();
+		console.log(data);
+		posts = data;
+	});
+
+	
 	export let name;
+	export let item;
 </script>
 
 <main>
-	<h1>Your Saved Feed {name}!</h1>
+	<h1>SaveIt! {name}!</h1>
 	<div id="feed">
 		<div class="item">
 			<div class ="title">Post 1</div>
@@ -13,6 +26,15 @@
 			<div class ="title">Post 2</div>
 			<img src = "./images/test2.jpeg">
 		</div>
+
+		{#each posts as article} 
+			<div class = "item">
+				<div class ="title">{article.title}</div>
+				<img src = "{article.url}">
+			</div>
+			
+		{/each}
+
 	</div>
 	
 </main>
